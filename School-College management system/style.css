@@ -1,0 +1,967 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Smooth scrolling behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation bar styling */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgb(32, 66, 112);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+   
+}
+
+/* Navbar container styling */
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar unordered list styling */
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+/* Navbar list items styling */
+.navbar ul li {
+    margin-left: 20px;
+    font-size:23px;
+}
+
+/* Navbar links styling */
+.navbar ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: 0.5s ease-in-out;
+}
+
+/* Navbar links hover effect */
+.navbar ul li a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+
+/* Dashboard button styling */
+.dash {
+    display: flex;
+    align-items: center;
+}
+
+.dash-btn {
+    height: 50px;
+    border-radius: 9px;
+    font-size: 25px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.dash-btn:hover {
+    border: 5px solid rgb(23, 173, 18);
+}
+
+/* Sidebar menu styling */
+.sidebar {
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 80px;
+    left: 0;
+    background-color: #344d53;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+/* Sidebar links styling */
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Sidebar links hover effect */
+.sidebar a:hover {
+    color: rgb(233, 250, 0);
+    border: 3px solid white;
+    background-color: rgb(102, 104, 107);
+}
+
+/* Close button for sidebar */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 40px;
+    margin-left: 50px;
+    color: red;
+    cursor: pointer;
+}
+
+/* Sidebar responsive styling for smaller screens */
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 35px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+/* Responsive Navbar for smaller screens */
+.navbar-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.navbar-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: rgb(32, 66, 112);
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .navbar ul.show {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .dash {
+        margin-left:10px;
+    }
+}
+
+.content {
+    padding-top: 80px;
+}
+
+.page1 {
+    background-color: #ffffff;
+    width: auto;
+    height: 870px;
+    display: flex;
+    justify-content: space-around;
+    /* Separate the image and paragraph */
+    align-items: center;
+    /* Center items vertically */
+    text-align: center;
+    gap: 20px;
+    /* Add some space between elements */
+}
+
+.page1-img {
+    flex:0.5;
+    margin-right: 5%;
+    /* Adjust the width of the image container */
+}
+
+.page1-content {
+    flex: 1;
+    /* Adjust the width of the text container */
+}
+
+.page1-content p {
+    font-size: 50px;
+    width: auto;
+   
+    
+    /* Add margin to the text */
+    animation: slideIn 3.5s ease-out;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-250px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.page1-content button {
+    background-color: blue;
+    color: white;
+    height: 50px;
+    width: auto;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    animation: slideIn 3.5s ease-out;
+}
+
+
+
+.page1-img img {
+    max-height: 500px;
+    max-width: 100%;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+    animation: zoomInOut 2.3s infinite;
+}
+
+
+
+@media (max-width: 768px) {
+    .page1 {
+        flex-direction: column;
+        /* Stack items vertically on smaller screens */
+        height: auto;
+        padding: 20px;
+    }
+
+    .page1-img img {
+        height: 250px;
+        width: 250px;
+    }
+
+    
+    .page1-content p {
+        font-size: 25px;
+    }
+
+    .page1-content{
+        width:auto;   
+    }
+
+    .page1-content button{
+        padding:5px;
+        height:40px;
+        
+    }
+}
+
+
+
+
+/*add records section*/
+
+.hidden {
+    display: none;
+}
+
+
+.section {
+    width: calc(100% - 280px);
+    /* Adjust width to account for sidebar */
+    margin-left: 280px;
+   
+    background-color: rgb(222, 228, 231);
+    height: 870px;
+    align-items: center;
+    position:fixed;
+  
+}
+
+@media (max-width:768px){
+    .section{
+        position:unset;
+    }
+   
+   
+}
+
+
+
+
+/*section 1 student records*/
+#addrecords{
+    z-index:1;
+}
+
+.headline {
+    background-color: rgb(148, 113, 180);
+    text-align: center;
+    height: 55px;
+    padding: 10px;
+    font-size: 40px;
+    width: 100%;
+    /* Ensure the headline spans the full width of the section */
+}
+
+#studentForm {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Space between form and table */
+}
+
+.studentborder {
+    border: 2px solid blue;
+    padding: 25px 50px 15px 49px;
+    background-color: rgb(109, 179, 179);
+    border-radius: 5px;
+    margin-bottom: 30px;
+    margin-top:20px;
+    width:500px;
+    height:300px;
+  
+    /* Space between border and button */
+}
+
+#studentForm label{
+    font-size: 22px;
+}
+
+#studentForm input {
+   
+    margin-bottom: 12px;
+    /* Space between form elements */
+}
+
+#studentForm input[type='text'],
+#studentForm input[type='email'] {
+    height: 35px;
+    width: 270px;
+    border-radius: 5px;
+    border: 2px solid black;
+    margin-left: 20px;
+}
+
+#studentForm button {
+    background-color: green;
+    color: white;
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-left: 50px;
+    /* Space above the button */
+}
+
+
+
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 7px;
+    
+}
+
+th {
+    background-color: #9999b9;
+}
+
+#attendance{
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    #addrecords {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: auto;  
+        margin-left: 0;
+              
+}
+        .studentborder{
+           height:300px;
+           width:360px;
+           padding-top: 40px;
+           padding-left: 13px;
+           margin-left: 10px;
+           margin-right: 10px;
+           padding-right: 10px;
+        }
+
+        #studentForm{
+            display: block;
+            
+        }
+
+        #studentForm button{
+           margin-left: 0;
+           margin-top: 0;
+        }
+
+        #studentForm label {
+            
+            margin-left: 5px;
+        }
+
+        .btn{   
+            display: flex;
+            justify-content: center;
+        }
+        
+        table {
+            max-width: auto;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        #studentForm input[type='text'],
+        #studentForm input[type='email'] {
+            max-width:230px;
+            margin-left: 13px;
+            
+        }
+
+  table,th,td {
+      border: 1px solid black;
+      max-width:auto;
+  }
+}
+
+@media (max-width: 768px){
+    table{
+            width: 95%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+    #attendance{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: auto;
+            margin-left: 0;
+       }
+
+
+    .hidden {
+        display: none !important;
+        /* Ensure hidden class hides elements when required */
+    }
+}
+
+
+
+
+
+/*notice section*/
+#mark{
+    z-index:1;
+}
+
+
+.notice-div {
+    margin-top: 50px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.notice-div button {
+    background-color: green;
+    color: white;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    margin-top: 20px;
+
+}
+
+textarea::placeholder {
+    font-size: 20px;
+    color: rgb(8, 1, 1);
+
+}
+
+.notice-textarea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notice-textarea textarea {
+    background-color: rgb(191, 229, 231);
+    border-radius: 10px;
+    font-size: 20px;
+    border: 1px solid rgb(0, 0, 255);
+    width: 60%;
+}
+
+/* notice item is a class which contains notice inside #notice-container*/
+.notice-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    padding: 13px;
+    border: 1px solid #1a1818;
+    border-radius: 5px;
+    width: 52%;
+    background-color: red;
+    background-color: red;
+    word-wrap: break-word;
+        /* Wrap long words */
+    overflow-wrap: break-word;
+       
+    flex-wrap: wrap;
+}
+
+#notice-container{
+    display: flex;
+    /* Enable Flexbox */
+    flex-direction: column;
+    /* Arrange children in a column */
+    justify-content: center;
+    /* Center vertically */
+    align-items: center;
+      
+}
+
+.notice-item p {
+    margin: 0;
+    flex: 1;
+    font-size: 20px;
+    color: white;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
+}
+
+.notice-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    color: white;
+    background-color: rgb(122, 28, 28);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    
+}
+
+@media (max-width: 768px){
+    #mark{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .notice-item{
+        width: 90%;
+           
+    }
+
+    #notice-container{
+        width: 100%;
+            
+    }
+}    
+
+
+
+/* login modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 23px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    text-align: center;
+    height: 500px;
+
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+.modal-content input[type='text'],
+.modal-content input[type='password'] {
+    width: 260px;
+    height: 30px;
+    padding: 5px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    
+
+}
+
+.modal-content button {
+    width: 380px;
+    height: 45px;
+    background-color: red;
+    color: white;
+    margin-top: 30px;
+}
+
+.modal-content label {
+    margin-left: 30px;
+
+}
+
+@media (max-width:768px){
+    .modal {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+        }
+    
+        .modal-content {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+           
+        }
+    
+        .modal-content input[type='text'],
+        .modal-content input[type='password'] {
+            width: calc(100% - 40px);
+            /* Full width minus padding */
+        }
+    
+        .modal-content button {
+            width: calc(100% - 40px);
+            /* Full width minus padding */
+        }
+}
+
+
+/*service setion*/
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 images per row */
+    row-gap: 80px;
+    height: auto;
+    /* Adjust the gap between images as needed */
+    justify-items: center;
+    margin-top: 50px; 
+    margin-bottom: 60px;
+   
+    /* Add margin to the container */
+}
+
+figure {
+    text-align: center;
+    max-width: 200px;
+    height: auto;
+    animation: zoomInOut 1.4s infinite;
+    /* Apply the zoom animation directly */
+    
+}
+
+/* Keyframes for the zoom in and out animation 
+@keyframes rule defines the steps of the animation:
+0%: At the start of the animation,the element is at its original size (scale(1)). 
+50%: Halfway through the animation,the element scales up to 120% of its original size (scale(1.2)),creating a zoom-in effect. 
+100%: At the end of the animation,the element returns to its original size (scale(1)),creating a zoom-out effect.*/
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.services img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+    animation: zoom 3s infinite;
+
+}
+
+
+figcaption {
+    margin-top: 5px;
+    font-size: 17px;
+    color: blue;
+}
+
+h5 {
+    font-size: 40px;
+    text-align: center;
+}
+
+
+@media (max-width:768px) {
+    .services{
+        grid-template-columns: repeat(3, 1fr);
+        width:auto;
+        
+    }
+
+    @keyframes zoomInOut {
+        0% {
+            transform: scale(0.8);
+        }
+
+        50% {
+            transform: scale(0.9);
+        }
+
+        100% {
+            transform: scale(0.8);
+        }
+    }
+
+}
+
+
+
+/*contact section */
+.contact {
+    display: flex;
+    gap: 70px;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contact1 {
+    border: 1px solid black;
+    width: 400px;
+    text-align: center;
+    height: 150px;
+    align-content: center;
+    margin-top: 80px;
+    border-radius: 10px;
+    margin-bottom: 120px;
+    opacity: 0;
+    transform: translateX(-100%);
+        /* Start off-screen to the left */
+    animation: slideInLeft 2s forwards infinite;
+        /* 1s duration, repeats infinitely */
+    }
+    
+    @keyframes slideInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+            /* Off-screen */
+        }
+    
+        50% {
+            opacity: 1;
+            transform: translateX(0);
+            /* Final position in the center */
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+                /* Final position */
+            /* Exit off-screen to the right */
+        }
+    }
+
+.contact-us h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.contact-us h2 {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.contact1 h1 {
+    text-align: center;
+    font-size: 30px;
+    color:blue;
+}
+
+.contact1 h2 {
+    text-align: center;
+    font-size: 20px;
+    
+
+}
+
+
+@media (max-width:768px){
+    .contact{
+        display: block;
+           
+    }
+
+    .contact1{
+        width:auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        height:120px;
+    }
+
+}
+
+
+
+
+
+/*teacher details */
+#teacher{
+    z-index: 1;
+}
+
+.teacher-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.teach-content{
+    margin-top: 40px;
+    border:2px solid blue;
+    padding:20px 20px 10px 20px;
+    width:auto;
+}
+.teach-content input[type='text']{
+    width:230px;
+    height:30px;
+    border-radius: 5px;
+    border:2px solid black;
+}
+
+.teach-content label{
+    font-size: 20px;
+}
+
+.teach-btn button{
+    width:60px;
+    height:25px;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+}
+
+@media (max-width:768px){
+    #teacher {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: auto;
+            margin-left: 0;
+    
+        }
+    
+        .teach-content{
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+           
+            padding:20px 30px 7px 30px;
+        }   
+    
+}
+
+
+
+/*dashboard section*/
+#summary{
+    z-index: 1;
+}
+
+.sumc{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    
+    
+    
+}
+.sum-count{
+    border:3px solid blue;
+    width:auto;
+    height: 180px;
+    margin-top: 50px;
+    justify-content: center;
+    display: flex;
+    margin-left:30px;
+    margin-right:30px;
+    align-items: center;
+}

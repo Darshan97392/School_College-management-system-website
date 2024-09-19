@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="text/javascript"></script>
+    <title>School-College Management System</title>
+</head>
+    <body>
+    
+        <div class="nav">
+            <div class="dash">
+                <button class="dash-btn" onclick="openNav();">
+                    <span style="color:rgb(255, 0, 0); margin-right:7px; font-size:30px;">&#9776;</span>Dashboard
+                </button>
+            </div>
+            <div class="navbar">
+                <div class="navbar-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#contact-section">Contact us</a></li>
+                    <li><a href="#service-section">Services</a></li>
+                    <li><a href="#">Search</a></li>
+                    <li><a onclick="openModal()"><span style="cursor:pointer;border:2px solid rgb(255, 255, 255);padding:2px 5px 2px 5px;">Login</span></a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="sidebar" id="myDashboard">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav();">&times;</a>
+            <a href="#" onclick="showSection('summary'); closeSidebarOnClick();">Dashboard</a>
+            <a href="#" onclick="showSection('addrecords'); closeSidebarOnClick();">Student records</a>
+            <a href="#" onclick="showSection('attendance'); closeSidebarOnClick();">Attendance</a>
+            <a href="#" onclick="showSection('teacher'); closeSidebarOnClick();">Teacher</a>
+            <a href="#" onclick="showSection('mark'); closeSidebarOnClick();">Notice</a>
+            <a href="#" onclick="showSection('report card')">Report card</a>
+            <a href="#" onclick="showSection('assignment')">Assignment</a>
+        </div>
+
+
+        <!--title name and image-->
+        <div class="content">
+                
+            <div class='page1' id="imageContainer">
+                
+            <div class="page1-content">
+                <p>If you want to upgrade your school or colleges a unique way of ERP software modernize to our<br><span style="color:rgb(27, 6, 85);font-weight:bold;">School/College management system</span></p><br>
+                <button>Book now</button>
+            </div>
+            <div class="page1-img">
+                
+                <img src="s4.jpg">
+            </div>
+
+            </div>
+            
+            
+        </div>
+
+
+
+<section id="dars">
+    
+    <section id="addrecords" class="section hidden">
+        <h1 class="headline">Student records</h1>
+    
+        <form id="studentForm">
+            <div class="studentborder">
+    
+                <label>Name:</label><input type="text" id="studentName" placeholder="Enter student name"><br><br><br>
+                <label>E-mail:</label><input type="email" id="studentEmail" placeholder="Enter student email"><br><br><br>
+                <label>Roll no.:</label><input type="text" id="studentRollNo"
+                    placeholder="Enter student roll number"><br><br><br>
+            </div>
+            <div class="btn">
+                <button type="button" onclick="addStudent()">Add Student</button>
+            </div>
+        </form>
+        <br><br>
+    
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Roll Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows of student data will appear here -->
+            </tbody>
+        </table>
+    </section>
+
+    
+
+    <section id="attendance" class="section hidden">
+        <h1 class="headline">Attendance</h1><br><br>
+    
+        <table id="studentTableAttendance">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Roll Number</th>
+                    <th>Mark attendance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows of student data will appear here -->
+            </tbody>
+        </table>
+    </section>
+
+
+
+    <section id="mark" class="section hidden">
+        <h1 class="headline">Notice</h1>
+        <div class="notice-div">
+            <div class="notice-textarea">
+               <textarea id="noticeboard" rows="7" cols="100" placeholder="Announce notice here....."></textarea>
+            </div>
+            <div class="notice-button">
+                <button onclick="addnotice()">SUBMIT</button>
+            </div>
+        </div>
+    
+        <div id="notice-container">
+             
+        </div> <!-- Container to hold multiple notices -->
+    </section>
+
+
+    <section id="teacher" class="section hidden">
+        <h1 class="headline">Teacher details</h1>
+        <div class="teacher-details">
+            <div class="teach-content">
+                <label>Teacher name:</label>
+                <input type="text" id="teacher-name" placeholder="Enter teacher name"><br><br><br>
+                <label>Class incharge:</label>
+                <input type="text" id="class-incharge" placeholder="Enter class incharge"><br><br><br>
+                <label>Subject handling:</label>
+                <input type="text" id="sub-handling" placeholder="Enter subject handling"><br><br><br>
+            </div><br><br>
+            <div class="teach-btn">
+                <button onclick="addteacher()">ADD</button>
+            </div>
+        </div><br><br>
+    
+        <table id="teacherTable">
+            <thead>
+                <tr>
+                    <th>Teacher name</th>
+                    <th>Class incharge</th>
+                    <th>Subjects handling</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows of teacher data will appear here -->
+            </tbody>
+        </table>
+    </section>
+
+
+
+    <section id="summary" class="section hidden">
+        <h1 class="headline">Dashboard</h1>
+        <div class="sumc">
+            
+            <div class="sum-count" style="color:rgb(15, 13, 13);background-color:rgb(78, 163, 78);">
+                <h1>student</h1>
+            </div>
+            <div class="sum-count" style="color:rgb(15, 6, 6);background-color:rgb(86, 86, 175);">
+                <h1>teacher</h1>
+            </div>
+            <div class="sum-count" style="color:rgb(7, 3, 3);background-color:rgb(173, 72, 72);">
+                <h1>subjects</h1>
+            </div>
+            <div class="sum-count" style="color:rgb(12, 5, 5);background-color:rgb(196, 196, 78);">
+                <h1>fee</h1>
+            </div>
+        </div>
+    </section>
+
+
+</section>
+
+
+
+<!--login content-->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Login</h2><br><br>
+            <h8>Please enter your Username and password</h3><br><br><br>
+                <form>
+                    <label>Username</label></labe><input type="text" placeholder="Username" required><br><br>
+                    <label>Password</label><input type="password" placeholder="Password" required><br><br>
+                    <button type="submit">Login</button><br><br>
+                    <h4>New User, Sign up first...</h4>
+                </form>
+        </div>
+    </div>
+
+
+    <div id="service-section" class="ds">
+        <h5>Services</h5>
+        <div class="services">
+    
+            <figure>
+                <img src="c1.png" alt="Image 1">
+                <figcaption>Enroll admission</figcaption>
+            </figure>
+            <figure>
+                <img src="c2.png" alt="Image 2">
+                <figcaption>Enquiry mgmt</figcaption>
+            </figure>
+            <figure>
+                <img src="c3.png" alt="Image 3">
+                <figcaption>Parents-Teachers communication</figcaption>
+            </figure>
+            <figure>
+                <img src="c4.png" alt="Image 4">
+                <figcaption>Fee details</figcaption>
+            </figure>
+    
+            <figure>
+                <img src="c5.png" alt="Image 5">
+                <figcaption>Transport mgmt</figcaption>
+            </figure>
+            <figure>
+                <img src="c6.png" alt="Image 6">
+                <figcaption>Examination&grading</figcaption>
+            </figure>
+            <figure>
+                <img src="c7.png" alt="Image 7">
+                <figcaption>Notice board</figcaption>
+            </figure>
+            <figure>
+                <img src="c8.png" alt="Image 8">
+                <figcaption>Attendance</figcaption>
+            </figure>
+    
+            <figure>
+                <img src="c9.png" alt="Image 9">
+                <figcaption>Self Service Portal for Student / Staff</figcaption>
+            </figure>
+            <figure>
+                <img src="c10.png" alt="Image 10">
+                <figcaption>Library mgmt</figcaption>
+            </figure>
+            <figure>
+                <img src="c11.png" alt="Image 11">
+                <figcaption>Service desk</figcaption>
+            </figure>
+            <figure>
+                <img src="c12.png" alt="Image 12">
+                <figcaption>Feedback</figcaption>
+            </figure>
+        </div>
+    </div>
+
+
+
+    <div id="contact-section" class="ds" >
+        <div class="contact-us">
+            <h1>Contact us</h1><br>
+            <h2>Give us a call or drop by anytime, we endeavor to answer all enquiries within 24 hours on business days.<br>
+    
+                We will be happy to answer your questions.</h2>
+        </div>
+        <div class="contact">
+            <div class="contact1">
+                <h1>call us</h1>
+                <h2>9739279800</h2>
+            </div>
+            <div class="contact1">
+                <h1>E-mail us</h1>
+                <h2>darshan190503@gmail.com</h2>
+            </div>
+            <div class="contact1">
+                <h1>visit us</h1>
+                <h2>Bengaluru,karnataka-India</h2>
+            </div>
+        </div>
+    </div>
+
+
+    </body>
+</html>
